@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/splashFragment">
+
+    <action
+        android:id="@+id/action_global_to_movie_detail_fragment"
+        app:destination="@id/movieDetailFragment">
+        <argument
+            android:name="movie"
+            app:argType="tech.gamedev.movietime.data.remote.responses.Movie" />
+    </action>
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="tech.gamedev.movietime.ui.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_navigation_home_to_movieDetailFragment"
+            app:destination="@id/movieDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_dashboard"
+        android:name="tech.gamedev.movietime.ui.favourites.FavouriteFragment"
+        android:label="@string/title_dashboard"
+        tools:layout="@layout/fragment_favourite" />
+
+    <fragment
+        android:id="@+id/navigation_notifications"
+        android:name="tech.gamedev.movietime.ui.profile.ProfileFragment"
+        android:label="@string/title_notifications"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="tech.gamedev.movietime.ui.splash.SplashFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash" >
+        <action
+            android:id="@+id/action_splashFragment_to_navigation_home"
+            app:destination="@id/navigation_home" />
+    </fragment>
+    <fragment
+        android:id="@+id/movieDetailFragment"
+        android:name="tech.gamedev.movietime.ui.detail.MovieDetailFragment"
+        android:label="fragment_movie_detail"
+        tools:layout="@layout/fragment_movie_detail" >
+        <argument
+            android:name="movie"
+            app:argType="tech.gamedev.movietime.data.remote.responses.Movie" />
+    </fragment>
+</navigation>

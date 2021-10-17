@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/black"
+    android:layout_height="match_parent"
+    tools:context=".ui.home.HomeFragment">
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeToRefresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="58dp"
+            android:fillViewport="true">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/etSearch"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_width="match_parent"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_margin="24dp"
+                    android:hint="@string/search"
+                    android:visibility="gone"
+                    android:elevation="5dp"
+                    android:layout_height="wrap_content"
+                    app:hintTextColor="@color/white"
+                    >
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etSearchText"
+                        android:layout_width="match_parent"
+                        android:background="@drawable/search_background"
+                        android:layout_height="50dp"
+                        android:paddingStart="24dp"
+                        android:paddingEnd="24dp"
+                        android:paddingBottom="6dp"
+                        android:paddingTop="6dp"
+                        android:textColor="@color/white"
+                        app:endIconMode="custom"
+                        android:textColorHint="@color/white"
+                        app:endIconDrawable="@drawable/ic_search"
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/tvFeaturedTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Featured"
+                    android:visibility="gone"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toTopOf="@id/etSearch"
+                    android:textColor="@color/white"
+                    app:layout_constraintStart_toStartOf="@id/etSearch"
+                    android:layout_marginTop="24dp"/>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/featuredThumbContainer"
+                    app:layout_constraintTop_toBottomOf="@id/tvFeaturedTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_margin="24dp"
+                    >
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/movies_header"/>
+
+                </androidx.cardview.widget.CardView>
+
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/catergoriesTabBar"
+                    android:layout_width="match_parent"
+                    android:background="@color/black"
+                    app:tabTextColor="@color/white"
+                    app:layout_constraintTop_toBottomOf="@id/featuredThumbContainer"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.tabs.TabItem
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Popular"
+                        />
+
+                    <com.google.android.material.tabs.TabItem
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Favourites"
+                        />
+
+                    <com.google.android.material.tabs.TabItem
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Streaming"
+                        />
+                </com.google.android.material.tabs.TabLayout>
+
+                <TextView
+                    android:id="@+id/tvPopularTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:text="Popular"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toBottomOf="@id/featuredThumbContainer"
+                    android:textColor="@color/white"
+                    app:layout_constraintStart_toStartOf="@id/etSearch"
+                    android:layout_marginTop="24dp"/>
+
+                <TextView
+                    android:id="@+id/btnPrevious2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/prev"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:elevation="3dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="24dp"
+                    app:layout_constraintTop_toBottomOf="@+id/catergoriesTabBar"
+                    app:layout_constraintBottom_toTopOf="@id/rvMovies"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginStart="24dp"
+                    />
+
+                <TextView
+                    android:id="@+id/btnNext2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/next"
+                    android:elevation="3dp"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:layout_marginTop="12dp"
+                    app:layout_constraintTop_toBottomOf="@+id/catergoriesTabBar"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginBottom="24dp"
+                    android:layout_marginEnd="24dp"/>
+
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvMovies"
+                    android:layout_marginTop="12dp"
+                    app:layout_constraintTop_toBottomOf="@id/btnPrevious2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/btnPrevious"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/prev"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:layout_marginTop="24dp"
+                    app:layout_constraintTop_toBottomOf="@id/rvMovies"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginStart="24dp"
+                    />
+
+                <TextView
+                    android:id="@+id/btnNext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/next"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    app:layout_constraintTop_toBottomOf="@id/rvMovies"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="24dp"/>
+
+                <View
+                    app:layout_constraintTop_toBottomOf="@id/btnNext"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"/>
+
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

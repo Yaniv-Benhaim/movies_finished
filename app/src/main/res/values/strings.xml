@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">MovieTime</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="search">Search</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="next">Next</string>
+    <string name="prev">Prev</string>
+    <string name="love_it">love it</string>
+    <string name="example_text">2American Pie is a 1999 American sex comedy and coming of age film directed and co-produced by Paul Weitz (in his directorial debut) and written by</string>
+    <string name="plot_title">Plot Summary</string>
+    <string name="summary_example">2020 - Action Fantastic - 2h 46m</string>
+    <string name="title_example">Captain America</string>
+    <string name="more_movies_like_this">More Movies like this</string>
+    <string name="movies">Movies</string>
+    <string name="favourites">Favourites</string>
+    <string name="profile">Profile</string>
+    <string name="my_favourites">My Favourites</string>
+    <string name="profile_text">Android developer born and raised in Holland. Came to Israel to follow my dream, live the life and eat the tasty food.</string>
+    <string name="skills">Skills</string>
+</resources>
